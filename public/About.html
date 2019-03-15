@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">   
+<title>GaganPly one stop solution for all Architects and Interior Designers</title>   
+<link rel="stylesheet" type="text/css" href="style.css">
+<link href='https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,300' rel='stylesheet' type='text/css'>
+<link type="text/css" media="all" href="https://w53-50r.kalfire.com/wp-content/cache/autoptimize/css/autoptimize_4bb094a798453f2425e7bcf54c01881c.css" rel="stylesheet">
+<link type="text/css" media="screen" href="https://w53-50r.kalfire.com/wp-content/cache/autoptimize/css/autoptimize_fae7fbf4116ab90c9a5b9900cba25370.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="style/type/icons.css">
+<link rel="shortcut icon" href="style/images/logo.PNG">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 17px;
+  overflow-y: hidden;
+}
+
+a:hover{
+color: white !important;
+}
+#find:hover{
+  color: #7b3804 !important;
+  background-color: white !important;
+}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+}
+
+.content {
+  position: fixed;
+  bottom: 0;
+  /*background: rgba(0, 0, 0, 0.5);*/
+  color: #f1f1f1;
+  width: 100%;
+  padding: 20px;
+}
+ h1 {
+  font-size: 52px;
+    font-family: 'Poppins', sans-serif;
+}
+
+#myBtn {
+  width: 200px;
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+}
+
+#myBtn:hover {
+  background: #ddd;
+  color: black;
+}
+.header{
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+}
+</style>
+</head>
+<body>
+
+
+
+<video playsinline preload autoplay muted loop id="myVideo" poster="https://res.cloudinary.com/www-gaganply-com/image/upload/v1550430081/gaganply/art/slider-bg1.jpg">
+  <source src="https://res.cloudinary.com/www-gaganply-com/video/upload/v1550430099/gaganply/art/about.mp4" type="video/mp4">
+  <source src="style/images/art/about.webm" type="video/webm">
+  <source src="style/images/art/about.ogv" type="video/ogv">
+  Your browser does not support HTML5 video.
+</video>
+
+<header class="header">
+   <div class="header__inner">
+      <div class="header__logo-wrapper">
+         <a href="index.html" class="header__logo"><img src="style/images/logo.PNG" alt="GAGANPLY"></a>
+         <div class="header__product-type-text">GaganPly</div>
+      </div>
+      <div class="header__top-menu">
+         <ul>
+          <li class="current-menu-item"><a href="About.html"><span>About Us</span></a></li>
+          <li><a href="index.html"><span>Home</span></a></li>
+          <li><a href="Gaganply2/plywood.html"><span>Gallery</span></a></li>
+          <li><a href="index.html#productz"><span>Products</span></a></li>
+         </ul>
+      </div>
+      <nav class="header__language-switcher language-switcher">
+         <ul class="language-switcher__languages">
+            <li class="lang-item lang-item-3 lang-item-nl lang-item-first"><a href="https://www.facebook.com/plygagan" target="_blank"><i class="ion-social-facebook"></i></li>
+            <li class="lang-item lang-item-6 lang-item-en"><a href="https://twitter.com/GaganPly" target="_blank"><i class="ion-social-twitter"></i></a></li>
+            <li class="lang-item lang-item-10 lang-item-de"><a href="https://www.instagram.com/gaganply/" target="_blank"><i class="ion-social-instagram"></i></a></li>
+            <li class="lang-item lang-item-14 lang-item-fr"><a href="https://wa.me/919792444424?text=I'm%20interested%20in%20one%20of%20your%20products" target="_blank" target="_blank"><i class="ion-social-whatsapp"></i></a></li>
+         </ul>
+      </nav>
+      <a href="https://goo.gl/maps/Q9KMLDAuDrH2" target="_blank" id="find" class="header__find-dealer btn">Find our location</a>
+   </div>
+</header>
+
+<div class="homepage-video__sound-control sound-control">
+   <div class="sound-control__text"><span class="on" id="onOff">Sound on</span></div>
+   <div class="sound-control__inner"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+</div>
+
+<main class="theme-content">
+    <div class="theme-content__inner"> <span class="theme-content__pretitle" style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">GAGANPLY</span>
+        <h1 class="theme-content__title" style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0); color: #fff !important;">Plywood in its purest form</h1>
+        <div class="theme-content__excerpt" style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">We customize plywood for enthusiasts who refuse to compromise, but listen to their feelings.</div>
+    </div>
+</main>
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <script type="text/javascript" src="main.js"></script>
+
+<script>
+var video = document.getElementById("myVideo");
+var btn = document.getElementById("myBtn");
+
+ $(".sound-control").click(function() {
+  var x = document.getElementById("onOff");
+  if (x.innerHTML === "Sound on") {
+    x.innerHTML = "Sound off";
+  } else {
+    x.innerHTML = "Sound on";
+  }
+        var bool = $("#myVideo").prop("muted");
+        $("#myVideo").prop("muted",!bool);
+       
+});
+
+// function myFunction() {
+//   if (video.paused) {
+//     video.play();
+//     btn.innerHTML = "Pause";
+//   } else {
+//     video.pause();
+//     btn.innerHTML = "Play";
+//   }
+// }
+$(document).ready(function (){
+  $("#myVideo").prop("muted",false);
+  $("#myVideo").prop("muted",true);
+});
+</script>
+
+</body>
+</html>
