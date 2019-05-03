@@ -54,16 +54,15 @@ function displayNotification() {
       ]
     };
   
-  if(Notification.permission == 'granted'){
-    navigator.serviceWorker.getRegistration()
-    .then(reg => {reg.showNotification("Welcome to GaganPly",options)
   
+  Notification.requestPermission((status)=> {
+    console.log("curret status of Notification: ",status)
+    if(status === 'granted'){
+      navigator.serviceWorker.ready.then(reg => {reg.showNotification("Welcome to GaganPly",options) 
   })
     .catch(err => "error while showing notification: %c"+err,"color:red")
-  }
-  else{
-  Notification.requestPermission((status)=> console.log("curret status of Notification: ",status));
-  displayNotification();
-  }
+    }
+  });
+
+}
   
-  }

@@ -1,0 +1,17 @@
+{
+  "short_name": "GaganPly",
+  "name": "GaganPly",
+  "description": "One stop solution for all Architects and Interior Designers",
+  "icons": [
+    {
+      "src":"style/images/logoM.PNG",
+      "sizes": "192x192",
+      "type": "image/PNG"
+    }
+  ],
+  "start_url": "/?utm_source=homescreen",
+  "background_color": "#fdfdfd",
+  "theme_color": "#e38a1e",
+  "display": "standalone",
+  "scope": "/"
+}
