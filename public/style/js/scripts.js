@@ -991,6 +991,9 @@ $(document).ready(function() {
          navMain.collapse('hide');
      });
  });
+//  $(function(){ 
+//     introJs('#test1').start();
+//  });
   $(document).ready(function (){
      $('#Clientz').owlCarousel({
     loop:true,
@@ -1016,6 +1019,6 @@ $(document).ready(function() {
     }
 })
       $('.owl-next').find('span').css("display","none");
- $('.owl-prev').find('span').css("display","none");
+ $('.owl-prev').find('span').css("display","none"); 
 
  });
