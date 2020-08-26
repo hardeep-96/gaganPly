@@ -4419,10 +4419,49 @@ video::-webkit-media-controls {
 .banner--clone.fixed #download{
     top:5px
 }
+.modal-header{
+  background-color: #DE8A28;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.modal-body{
+  background: #fff;
+  color: black;
+  padding: 5%;  
+}
+.badge {
+  background-color: #DE8A28;
+  padding: 8px 10px;
+  cursor: pointer;
+}
+p.heading{
+  margin-top: 4%;
+  font-size: 16px
+}
+.modal-footer.flex-center{
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn.btn-outline-danger.waves-effect{
+  width: 30%;
+  font-size: 14px;
+  background-color: #DE8A28;
+}
+button.close{
+  font-size: 30px;
+  margin-left: auto;
+}
 @media (max-width: 991px) {
   .navbar .navbar-nav > li > #download {
     top: 0px;
     padding: 0 5px !important;
     width: 45%;
+  }
+  .modal-body > .row{
+    margin-left: 5px;
+    margin-right: 5px;
   }
 }

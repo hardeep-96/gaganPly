@@ -1021,4 +1021,11 @@ $(document).ready(function() {
       $('.owl-next').find('span').css("display","none");
  $('.owl-prev').find('span').css("display","none"); 
 
+ var downloadArr = window.location.search.substr(1).split("=");
+ if(downloadArr[0] === "downloadPdf" && downloadArr[1] === "true")
+ {
+    setTimeout(() => $('#downloadManual').click(),1000); 
+    $('#modalDownload').modal('show');
+ }
+
  });
