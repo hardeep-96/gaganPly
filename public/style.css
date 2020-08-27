@@ -4454,6 +4454,13 @@ button.close{
   font-size: 30px;
   margin-left: auto;
 }
+.pdfModalHead{
+  padding: 0 15px;
+}
+#pdfView{
+  height: 75vh;
+  padding: 0;
+}
 @media (max-width: 991px) {
   .navbar .navbar-nav > li > #download {
     top: 0px;
