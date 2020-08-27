@@ -1021,14 +1021,11 @@ $(document).ready(function() {
       $('.owl-next').find('span').css("display","none");
  $('.owl-prev').find('span').css("display","none"); 
 
- PDFObject.embed("style/pdf/GAGANPLY_DESIGNER_DOORS.pdf", "#pdfView");
- $('#pdfViewerModal').modal('show');
-
  var downloadArr = window.location.search.substr(1).split("=");
  if(downloadArr[0] === "downloadPdf" && downloadArr[1] === "true")
  {
-    PDFObject.embed("style/pdf/GAGANPLY_DESIGNER_DOORS.pdf", "#pdfView");
-    $('#pdfViewerModal').modal('show');   
+    setTimeout(() => PDFObject.embed("style/pdf/GAGANPLY_DESIGNER_DOORS.pdf", "#pdfView"),2000) 
+    setTimeout(() => $('#pdfViewerModal').modal('show'),2500)
  }
 
  });
