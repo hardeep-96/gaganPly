@@ -1080,18 +1080,23 @@ $(document).ready(function () {
     pdfjsLib
       .getDocument("style/pdf/GAGANPLY_DESIGNER_DOORS.pdf")
       .promise.then(function (pdfDoc_) {
+        $('#loader-container').css('display','block');
         pdfDoc = pdfDoc_;
+        noOfPages = pdfDoc.numPages
         for (var i = 1; i <= pdfDoc.numPages; i++) {
           renderPage(i);
         }
-      });
-    setTimeout(() => $("#pdfViewerModal").modal("show"), 2500);
+      }).catch(() => $('#loader-container').css('display','none'));
+    
   }
 });
 
 var pdfDoc = null,
   pageRendering = false,
-  scale = 0.6;
+  scale = 0.6,
+  noOfPages = 0;
+
+  var showPdf = false;
 
 function renderPage(num) {
   pageRendering = true;
@@ -1112,8 +1117,12 @@ function renderPage(num) {
     };
     var renderTask = page.render(renderContext);
     renderTask.promise.then(function () {
-      $("#pdfViewerModal").modal("show");
-    });
+      if(!showPdf && num > noOfPages/2){
+        $('#loader-container').css('display','none');
+        $("#pdfViewerModal").modal("show");
+        showPdf = true;
+      }
+    }).catch(() => $('#loader-container').css('display','none'));
   });
 }
 
