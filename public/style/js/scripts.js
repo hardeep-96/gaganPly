@@ -1077,17 +1077,21 @@ $(document).ready(function () {
 
   var downloadArr = window.location.search.substr(1).split("=");
   if (downloadArr[0] === "downloadPdf" && downloadArr[1] === "true") {
+    $("#loader-container").css("display", "block");
     pdfjsLib
       .getDocument("style/pdf/GAGANPLY_DESIGNER_DOORS.pdf")
       .promise.then(function (pdfDoc_) {
-        $('#loader-container').css('display','block');
         pdfDoc = pdfDoc_;
-        noOfPages = pdfDoc.numPages
+        noOfPages = pdfDoc.numPages;
         for (var i = 1; i <= pdfDoc.numPages; i++) {
           renderPage(i);
         }
-      }).catch(() => $('#loader-container').css('display','none'));
-    
+      })
+      .catch(() => {
+        $("#loader-container").css("display", "none");
+        $("#pdfViewerModal").modal("hide");
+        alert("something went wrong!");
+      });
   }
 });
 
@@ -1096,7 +1100,7 @@ var pdfDoc = null,
   scale = 0.6,
   noOfPages = 0;
 
-  var showPdf = false;
+var showPdf = false;
 
 function renderPage(num) {
   pageRendering = true;
@@ -1116,13 +1120,19 @@ function renderPage(num) {
       viewport: viewport,
     };
     var renderTask = page.render(renderContext);
-    renderTask.promise.then(function () {
-      if(!showPdf && num > noOfPages/2){
-        $('#loader-container').css('display','none');
-        $("#pdfViewerModal").modal("show");
-        showPdf = true;
-      }
-    }).catch(() => $('#loader-container').css('display','none'));
+    renderTask.promise
+      .then(function () {
+        if (!showPdf && num > noOfPages / 2) {
+          $("#pdfViewerModal").modal("show");
+          $("#loader-container").css("display", "none");
+          showPdf = true;
+        }
+      })
+      .catch(() => {
+        $("#loader-container").css("display", "none");
+        $("#pdfViewerModal").modal("hide");
+        alert("something went wrong!");
+      });
   });
 }
 
