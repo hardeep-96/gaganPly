@@ -1122,7 +1122,7 @@ function renderPage(num) {
     var renderTask = page.render(renderContext);
     renderTask.promise
       .then(function () {
-        if (!showPdf && num > noOfPages / 2) {
+        if (!showPdf && num > noOfPages / 4) {
           $("#pdfViewerModal").modal("show");
           $("#loader-container").css("display", "none");
           showPdf = true;
