@@ -169,7 +169,7 @@
   <!--/.navbar -->
 
 
- <div class="container_prod">
+ <div class="container_prod"z>
     
       <section class="main_prod">
       
@@ -209,7 +209,7 @@
             <h4><a href="mdf.html"><span>MDF Boards</span></a></h4>                     
           </div>
           <div>
-            <h4><span>Products</span></h4>
+            <h4><span>Products <strong> Click to Open</strong></span></h4></h4>
             <h5><span>We &hearts; wood</span></h5>                     
           </div>
           
@@ -320,7 +320,9 @@
           // amount in degrees for the opened item's next sibling
           proximity : 40,
           // amount in degrees between the opened item's next siblings
-          neighbor : 7
+          neighbor : 7,
+          initclosed : true,
+          closeIdx : 8,
         } );
       
       });
