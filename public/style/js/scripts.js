@@ -1079,13 +1079,18 @@ $(document).ready(function () {
   if (downloadArr[0] === "downloadPdf" && downloadArr[1] === "true") {
     $("#loader-container").css("display", "block");
     pdfjsLib
-      .getDocument("style/pdf/GAGANPLY_DESIGNER_DOORS.pdf")
+      .getDocument("https://res.cloudinary.com/www-gaganply-com/image/upload/v1598736360/gaganply/pdf/GAGANPLY_DESIGNER_DOORS_compressed_1.pdf")
       .promise.then(function (pdfDoc_) {
+        // console.time('pdf');
         pdfDoc = pdfDoc_;
         noOfPages = pdfDoc.numPages;
-        for (var i = 1; i <= pdfDoc.numPages; i++) {
-          renderPage(i);
-        }
+        renderPage(1);
+        renderPage(2);
+        setTimeout(() => {
+          for (var i = 3; i <= pdfDoc.numPages; i++) {
+            renderPage(i);
+          }
+        },2000)
       })
       .catch(() => {
         $("#loader-container").css("display", "none");
@@ -1122,8 +1127,9 @@ function renderPage(num) {
     var renderTask = page.render(renderContext);
     renderTask.promise
       .then(function () {
-        if (!showPdf && noOfPages > 4) {
+        if (!showPdf) {
           $("#pdfViewerModal").modal("show");
+          // console.timeEnd('pdf');
           $("#loader-container").css("display", "none");
           showPdf = true;
         }
