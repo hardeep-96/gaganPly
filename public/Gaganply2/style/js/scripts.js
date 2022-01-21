@@ -350,7 +350,11 @@ $(document).ready(function() {
     /*	CUSTOM
     /*-----------------------------------------------------------------------------------*/
     $(document).ready(function () {
-        $("#floatingContact").load("/contact-us-floating-icon/contactUs.html");
+        try{
+            $("#floatingContact").load("/contact-us-floating-icon/contactUs.html");
+        }catch(err){
+            $("#floatingContact").load("contact-us-floating-icon/contactUs.html");
+        }
     });
 // /*-----------------------------------------------------------------------------------*/
 //     /*  SERVICEWORKER
