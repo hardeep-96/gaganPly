@@ -1099,12 +1099,6 @@ $(document).ready(function () {
         alert("something went wrong!");
       });
   }
-
-  try{
-    $("#floatingContact").load("/contact-us-floating-icon/contactUs.html");
-    }catch(err){
-        $("#floatingContact").load("contact-us-floating-icon/contactUs.html");
-    }
 });
 
 var pdfDoc = null,
@@ -1154,3 +1148,11 @@ function autoDownload() {
   setTimeout(() => $("#downloadManual").click(), 2000);
   $("#modalDownload").modal("show");
 }
+
+$(document).ready(function () {
+  try{
+      $("#floatingContact").load("/contact-us-floating-icon/contactUs.html");
+  }catch(err){
+      $("#floatingContact").load("contact-us-floating-icon/contactUs.html");
+  }
+});
