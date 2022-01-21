@@ -3491,7 +3491,7 @@ video::-webkit-media-controls {
 /*-----------------------------------------------------------------------------------*/
 
 #scrollUp {
-  bottom: 40px;
+  bottom: 100px;
   right: 20px;
   transition: background 200ms linear;
   -webkit-backface-visibility: hidden;
