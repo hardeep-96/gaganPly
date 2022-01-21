@@ -1098,6 +1098,7 @@ $(document).ready(function () {
         alert("something went wrong!");
       });
   }
+  $("#floatingContact").load("contact-us-floating-icon/contactUs.html");
 });
 
 var pdfDoc = null,
