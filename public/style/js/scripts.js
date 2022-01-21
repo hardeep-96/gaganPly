@@ -1049,6 +1049,7 @@ $(function () {
 //     introJs('#test1').start();
 //  });
 $(document).ready(function () {
+  $('.demoWrapper').hide();
   $("#Clientz").owlCarousel({
     loop: true,
     margin: 50,
