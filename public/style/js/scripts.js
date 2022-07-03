@@ -1035,6 +1035,35 @@ $(document).ready(function () {
 // }
 
 /*-----------------------------------------------------------------------------------*/
+/*  CONSTANTS
+    /*-----------------------------------------------------------------------------------*/
+    const FROM = 'from'
+    const SOCIAL_BLOGGER = 'socialBlogger'
+
+/*-----------------------------------------------------------------------------------*/
+/*  UTILS
+    /*-----------------------------------------------------------------------------------*/
+    // Read a page's GET URL variables and return them as an associative array.
+function getUrlVars()
+{
+    var vars = [], hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for(var i = 0; i < hashes.length; i++)
+    {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
+    }
+    return vars;
+}
+
+function setGenericModal(title, body, footer){
+  $('#genericModal').find('.modal-title').text(title)
+  $('#genericModal').find('.modal-body').append(body)
+  $('#genericModal').find('.modal-footer').append(footer)
+}
+
+/*-----------------------------------------------------------------------------------*/
 /*  MISCELLANEOUS
     /*-----------------------------------------------------------------------------------*/
 $(function () {
@@ -1076,6 +1105,8 @@ $(document).ready(function () {
   $(".owl-next").find("span").css("display", "none");
   $(".owl-prev").find("span").css("display", "none");
 
+  
+//download pdf
   var downloadArr = window.location.search.substr(1).split("=");
   if (downloadArr[0] === "downloadPdf" && downloadArr[1] === "true") {
     $("#loader-container").css("display", "block");
@@ -1156,3 +1187,34 @@ $(document).ready(function () {
       $("#floatingContact").load("contact-us-floating-icon/contactUs.html");
   }
 });
+
+//Blogger Discount Code
+const querrHash = getUrlVars();
+  if(querrHash[FROM] && querrHash[FROM] === SOCIAL_BLOGGER){
+    // $("#loader-container").css("display", "block");
+    setGenericModal('Get Your Instant Coupon Code for our special Discount Offers!', `
+    <div class="form-group">
+    <label for="bloggerRefEmail">Email address</label>
+    <input type="email" class="form-control bloggerRefEmail" id="bloggerRefEmail" required="required" aria-describedby="emailHelp" placeholder="Enter email">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="bloggerRefPhone">Phone Number</label>
+    <div class="bloggerRefPhoneContainer">
+      <div class="input-group-prepend bloggerRefPhoneCode">
+        <span class="input-group-text" id="phonenumber">+91</span>
+      </div>
+      <input type="text" id="bloggerRefPhone" maxlength="14" data-fv-numeric="true" data-fv-numeric-message="Please enter valid phone numbers" data-fv-phone-country11="IN"  data-fv-notempty-message="This field cannot be left blank." placeholder="Phone Number(Optional)" class="form-control" name="data[User][mobile]" data-fv-field="data[User][mobile]">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="bloggerRefCode">Referal Code</label>
+    <input type="email" class="form-control bloggerRefCode" id="bloggerRefCode" required="required" aria-describedby="emailHelp" placeholder="Enter Your Referal Code">
+    <small id="emailHelp" class="form-text text-muted">You will recieve the <b>Discount Code</b> on your email id</small>
+  </div>
+    `, `
+    <button type="button" class="btn btn-primary">Get Coupon Code</button>
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    `)
+    $("#genericModal").modal("show");
+  }
