@@ -666,8 +666,34 @@ footer .sub-footer .inner {
 .navbar .navbar-nav > li > a:focus,
 .navbar .nav > li > a:hover,
 .navbar .nav > li.current > a {
-    background: none
+    background: none;
+    color: #de8a28 !important;
 }
+.navbar .nav > li.current > a:after {
+    width: calc(100% - 12px);
+    content: "";
+    display: block;
+    height: 5px;
+    background: #80c9c5;
+    opacity: 0.3;
+    position: absolute;
+    top: 50%;
+    margin-top: 0;
+    left: 10px;
+    z-index: -1;
+    transition: all 200ms ease-in;
+  }
+  .navbar.centered .nav > li.current > a:after {
+    left: 5px;
+  }
+  .navbar.extended .nav > li.current > a:after {
+    margin-top: 1px;
+  }
+  @-moz-document url-prefix() {
+    .navbar .nav > li.current > a:after {
+      margin-top: 1px;
+    }
+  }
 .navbar .navbar-nav > li > a:focus {
     color: inherit
 }
